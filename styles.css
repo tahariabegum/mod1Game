@@ -1,4 +1,12 @@
 /* color board --> blue */
 /* no color to divs? 42 spaces */
 /* add color pieces (red & yellow */
+h1 {
+    text-align: center;
+}
 
+.board{
+    background-color: blue;
+    max-height: 600px; 
+    max-width: 500px; 
+}
