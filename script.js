@@ -4,11 +4,6 @@
 // alert winner 
 // have reset button clear board 
 
-// const pieces = document.querySelectorAll(".piece");
-// for (let piece of pieces) {
-//     piece.addEventListener("click", (evt) => {piece.style.backgroundColor = "red"})
-// }
-
 
 //select player (red and yellow) --> alternate turns 
 //pieces gravitate toward lowest open position 
@@ -20,3 +15,8 @@
 //if winner, alert ___ is winner and stop game
 //if no open positions available -- alert tie and restart
 //option to restart game (restart button clears board)
+
+const pieces = document.querySelectorAll(".piece");
+for (let piece of pieces) {
+    piece.addEventListener("click", (evt) => {piece.style.backgroundColor = "red"})
+}
