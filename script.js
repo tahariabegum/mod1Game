@@ -8,13 +8,14 @@
     //check horizontal
     //check vertical 
     //check diagonal 
-//if winner, alert ___ is winner and stop game
+//if winner, alert ___ is winner and stop game --> gameOver == true 
 //if no open positions available -- alert tie and restart
 //make sure once spot is selected cannot be changed 
 
 const column = 7;
 const row = 6;
 let currentPlayer = "red"
+let gameOver = false
 
 
 const reset = document.querySelector(".resetButton");

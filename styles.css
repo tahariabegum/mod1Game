@@ -6,8 +6,9 @@ h1 {
 
 .board { 
     background-color: blue;
-    height: 540px; 
-    width: 630px; 
+    border: 2px solid navy;
+    height: 590px; 
+    width: 660px; 
     margin: auto; 
     display: flex; 
     flex-wrap: wrap;
@@ -15,7 +16,7 @@ h1 {
 }
 
 .piece {
-   border: black; 
+   border: 2px solid navy; 
    height: 70px; 
    width: 70px; 
    border-radius: 50%;
@@ -26,12 +27,4 @@ h1 {
 .resetButton {
    margin-top: 20px; 
    margin-left: 45%; 
-}
-
-.red {
-    background-color: red;
-}
-
-.yellow {
-    background-color: yellow;
 }
