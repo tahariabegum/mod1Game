@@ -20,7 +20,10 @@ const column = 7;
 const row = 6;
 let currentPlayer = "red"
 
+
+const reset = document.querySelector(".resetButton");
 const pieces = document.querySelectorAll(".piece");
+
 for (let piece of pieces) {
     piece.addEventListener ("click", (evt) => { 
         piece.style.backgroundColor = currentPlayer;
@@ -33,5 +36,6 @@ for (let piece of pieces) {
         } else {
             currentPlayer = "red"
         }
-    }
-    )};
+    })
+    reset.addEventListener("click", (evt) => {piece.style.backgroundColor = "", currentPlayer = "red"});
+}

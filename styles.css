@@ -23,7 +23,7 @@ h1 {
    background-color: white; 
 }
 
-input {
+.resetButton {
    margin-top: 20px; 
    margin-left: 45%; 
 }
