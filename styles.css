@@ -27,3 +27,11 @@ input {
    margin-top: 20px; 
    margin-left: 45%; 
 }
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+}
