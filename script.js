@@ -16,7 +16,17 @@
 //if no open positions available -- alert tie and restart
 //option to restart game (restart button clears board)
 
+const column = 7;
+const row = 6;
+let currentPlayer = "red"
+
+
+
+
 const pieces = document.querySelectorAll(".piece");
 for (let piece of pieces) {
-    piece.addEventListener("click", (evt) => {piece.style.backgroundColor = "red"})
-}
+    piece.addEventListener ("click", (evt) => { 
+        evt.target.style.backgroundColor = currentPlayer
+    
+    }
+    )};
