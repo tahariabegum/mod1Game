@@ -88,6 +88,7 @@ function emptyRow(col) {
 }
 
 //reset game
+function resetGame() {
 reset.addEventListener("click", () => {
     for (let piece of pieces) {
       piece.style.backgroundColor = "";
@@ -95,6 +96,7 @@ reset.addEventListener("click", () => {
       gameOver = false;
     }
 });
+}
 
 function checkWinner(row, col) {
     for (let option of winningOptions) {
