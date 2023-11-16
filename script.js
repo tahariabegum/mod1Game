@@ -5,6 +5,7 @@ let gameOver = false
 
 const reset = document.querySelector(".resetButton");
 const pieces = document.querySelectorAll(".piece");
+const board = document.querySelector("board")
 
 let winningOptions = [
 [0, 1, 2, 3], [41, 40, 39, 38],[7, 8, 9, 10], 
@@ -53,7 +54,7 @@ pieces.forEach((piece, index) => {
       }
     });
 });
-   
+
 //Alternates Players
 function turn() {
     if (currentPlayer === "red") { 
@@ -83,6 +84,11 @@ reset.addEventListener("click", () => {
       gameOver = false;
     }
 });
+for (let piece of pieces) {
+    piece.style.backgroundColor = "";
+    currentPlayer = "red";
+    gameOver = false;
+  }
 }
 
 function checkWinner(row, col) {
@@ -97,6 +103,18 @@ function checkWinner(row, col) {
         alert(`${currentPlayer} wins!`);
         gameOver = true;
         resetGame()
-      }
+      } 
     }
 }
+
+// Function to check if the game is tied
+function isGameTied() {
+    for (let piece of pieces) {
+      if (piece.style.backgroundColor === "") {
+        // If any piece has an empty background color, the game is not tied
+        return false;
+      }
+    }
+    // If all pieces have a background color, the game is tied
+    return true;
+  }
