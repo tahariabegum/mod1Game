@@ -49,7 +49,7 @@ pieces.forEach((piece, index) => {
           checkWinner(currentRow, col);
   
           // Next player turn
-          turn();
+        //   turn();
         }
       }
     });
@@ -75,16 +75,19 @@ function emptyRow(col) {
     return -1;
 }
 
-//reset game
 function resetGame() {
-    reset.addEventListener("click", () => {
-        for (let piece of pieces) {
-          piece.style.backgroundColor = "";
-          currentPlayer = "red";
-          gameOver = false;
-        }
-    });
+    for (let piece of pieces) {
+        piece.style.backgroundColor = "";
+    }
+    currentPlayer = "red";
+    gameOver = false;
+    turn();
 }
+
+reset.addEventListener("click", () => {
+    resetGame()
+    currentPlayer = "red"
+});
 
 function checkWinner(row, col) {
     for (let option of winningOptions) {
@@ -98,8 +101,12 @@ function checkWinner(row, col) {
         alert(`${currentPlayer} wins!`);
         resetGame(); 
       } 
-      tiedGame()
+    //   tiedGame()
     }
+    if (tiedGame()) {
+        return
+    }
+    turn()
 }
 
 // Function to check if the game is tied
