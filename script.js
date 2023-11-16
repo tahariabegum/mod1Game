@@ -116,7 +116,7 @@ function tiedGame() {
             return false; // If any piece is empty, the game is not tied
         }
     }
-    alert("No winner! It's a tie!");
+    alert("No winner! It's a tie! Better Luck Next Time!");
     resetGame();
     return true; // Game is tied
 }
