@@ -37,9 +37,8 @@ pieces.forEach((piece, index) => {
     piece.addEventListener("click", () => {
       // Checks game over -- if not over --> find empty row in current column
       if (!gameOver) {
-        const col = index % columns;
+        const col = index % columns; 
         const currentRow = emptyRow(col); // emptyRow in clicked column
-  
         // If valid move is possible, change background to player piece
         if (currentRow !== -1) {
           const indexPiece = col + currentRow * columns;
@@ -53,20 +52,8 @@ pieces.forEach((piece, index) => {
         }
       }
     });
-  });
-
-// Find empty row in column
-function emptyRow(col) {
-  for (let row = rows - 1; row >= 0; row--) {
-    const indexPiece = col + row * columns;
-    if (!pieces[indexPiece].style.backgroundColor) {
-      return row;
-    }
-  }
-  return -1;
-}
-  
-    
+});
+   
 //Alternates Players
 function turn() {
     if (currentPlayer === "red") { 
@@ -109,7 +96,7 @@ function checkWinner(row, col) {
       ) {
         alert(`${currentPlayer} wins!`);
         gameOver = true;
-        return;
+        resetGame()
       }
     }
 }
