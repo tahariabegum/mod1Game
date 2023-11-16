@@ -77,18 +77,13 @@ function emptyRow(col) {
 
 //reset game
 function resetGame() {
-reset.addEventListener("click", () => {
-    for (let piece of pieces) {
-      piece.style.backgroundColor = "";
-      currentPlayer = "red";
-      gameOver = false;
-    }
-});
-for (let piece of pieces) {
-    piece.style.backgroundColor = "";
-    currentPlayer = "red";
-    gameOver = false;
-  }
+    reset.addEventListener("click", () => {
+        for (let piece of pieces) {
+          piece.style.backgroundColor = "";
+          currentPlayer = "red";
+          gameOver = false;
+        }
+    });
 }
 
 function checkWinner(row, col) {
@@ -101,20 +96,20 @@ function checkWinner(row, col) {
         pieces[c].style.backgroundColor === pieces[d].style.backgroundColor
       ) {
         alert(`${currentPlayer} wins!`);
-        gameOver = true;
-        resetGame()
+        resetGame(); 
       } 
+      tiedGame()
     }
 }
 
 // Function to check if the game is tied
-function isGameTied() {
+function tiedGame() {
     for (let piece of pieces) {
-      if (piece.style.backgroundColor === "") {
-        // If any piece has an empty background color, the game is not tied
-        return false;
-      }
+        if (!piece.style.backgroundColor) {
+            return false; // If any piece is empty, the game is not tied
+        }
     }
-    // If all pieces have a background color, the game is tied
-    return true;
-  }
+    alert("No winner! It's a tie!");
+    resetGame();
+    return true; // Game is tied
+}
