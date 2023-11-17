@@ -101,7 +101,6 @@ function checkWinner(row, col) {
         alert(`${currentPlayer} wins!`);
         resetGame(); 
       } 
-    //   tiedGame()
     }
     if (tiedGame()) {
         return
