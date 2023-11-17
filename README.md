@@ -2,7 +2,7 @@
 
 Connect Four Game
 
-Deployment Link
+Link to play:
 
 https://tahariabegum.github.io/mod1Game/
 
