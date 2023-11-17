@@ -33,19 +33,18 @@ let winningOptions = [
 [11, 18, 25, 32], [12, 19, 26, 33], [13, 20, 27, 34] 
 ]; 
 
-// Add event listeners to all pieces
+// Loop through pieces and assign index 
 pieces.forEach((piece, index) => {
     piece.addEventListener("click", () => {
-      // Checks game over -- if not over --> find empty row in current column
+      // if game is not over, then find empty row in clicked column 
       if (!gameOver) {
         const col = index % columns; 
         const currentRow = emptyRow(col); // emptyRow in clicked column
-        // If valid move is possible, change background to player piece
+        // If valid move is possible (empty row found), then find index where piece can be places and change background to player piece
         if (currentRow !== -1) {
           const indexPiece = col + currentRow * columns;
-          pieces[indexPiece].style.backgroundColor = currentPlayer;
-  
-          // Check if winner
+          pieces[indexPiece].style.backgroundColor = currentPlayer;  
+          // if piece is placed, then Check if winner
           checkWinner(currentRow, col);
   
           // Next player turn
@@ -64,9 +63,11 @@ function turn() {
     }
 }
 
-//Find empty row in column 
+//Find empty row in clicked column 
 function emptyRow(col) {
+    //iterate through row backward (bottom up)
     for (let row = rows - 1; row >= 0; row--) {
+      // find index where piece can be placed in row and if empty return row or return column full 
       const indexPiece = col + row * columns;
       if (!pieces[indexPiece].style.backgroundColor) {
         return row;
@@ -75,6 +76,7 @@ function emptyRow(col) {
     return -1;
 }
 
+//Game Reset
 function resetGame() {
     for (let piece of pieces) {
         piece.style.backgroundColor = "";
@@ -89,7 +91,9 @@ reset.addEventListener("click", () => {
     currentPlayer = "red"
 });
 
+//Check for winner 
 function checkWinner(row, col) {
+  //loop through winning options array to find 4 same colors then alert winner
     for (let option of winningOptions) {
       const [a, b, c, d] = option;
       if (
@@ -108,14 +112,16 @@ function checkWinner(row, col) {
     turn()
 }
 
-// Function to check if the game is tied
+//Check if game is tied 
 function tiedGame() {
+    //loop through each piece to check if spot is empty 
     for (let piece of pieces) {
         if (!piece.style.backgroundColor) {
-            return false; // If any piece is empty, the game is not tied
+            return false; //if piece is empty then game is not tied 
         }
     }
+    //if game tied alert tie and then restart game 
     alert("No winner! It's a tie! Better Luck Next Time!");
     resetGame();
-    return true; // Game is tied
+    return true;
 }
